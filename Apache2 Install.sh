@@ -33,7 +33,7 @@ sleep 3
 echo
 #code is by NRRINC Media
 echo
-
+#thank you to my friend liz for talking with me during the testing love you liz :D
 sudo apt-get install ssh python git apache2 mysql-server php -y
 
 echo
