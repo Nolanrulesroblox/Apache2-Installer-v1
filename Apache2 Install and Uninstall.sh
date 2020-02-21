@@ -1,5 +1,72 @@
 #!/bin/bash
+printf "Everything from /var/www/ and etc/apache2/ will be gone.)"
+echo
+printf "make sure to make backups if needed."
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+echo
+read -p "Uninstall apache? before installing? (EVERYTHING WILL BE GONE FOREVER) [yn]" answer
+if [[ $answer = y ]] ; then
+  echo
+echo
+sleep 1
+printf "(loading) #"
+echo
+printf "(loading) ##"
+sleep 1
+echo
+printf "(loading) ###"
+sleep 1
+echo
+printf "Loading Finished"
+sleep 1
+echo
+echo
+echo .
+echo ..
+echo ...
+echo
+echo deleting /var/www/
+sudo rm -r /var/www/
+echo
+echo .
+sleep 3
+echo ..
+echo ...
+echo
+printf "${BLUE}Completed or File not found which is good${NC}"
+echo
+echo Deleting /etc/apache2/
+sudo rm -r /etc/apache2/
+echo
+echo
+echo .
+sleep 3
+echo ..
+sleep 3
+echo ...
+printf "${BLUE}Completed or File not found which is good${NC}"
+clear
+sudo apt-get --purge remove apache2 -y
+printf "${RED}m${NC}y ${BLUE}s${RED}c${NC}r${BLUE}i${RED}p${NC}t${BLUE} i${RED}s ${NC}d${BLUE}o${RED}n${NC}e. ${BLUE}n${RED}o${NC}w ${BLUE}r${RED}u${NC}n ${BLUE}A${RED}p${NC}a${BLUE}a${RED}c${NC}h${BLUE}e${RED}2 S${NC}e${BLUE}t${RED}u${NC}p!"
+echo
+echo
+printf "↓↓↓ the install script ↓↓↓"
+sleep 3
+fi
 
+if [[ $answer = n ]] ; then
+	sudo service apache2 start
+	printf "note it is recommended that you uninstall any traces of old apache"
+	echo
+	printf "Script will Contiue in 10 seconds"
+	sleep 10
+fi 
+
+echo
+echo
 echo if you see this, i am working! To Stop this script at anytime, Please press CTRL+C
 echo
 echo before we start, Eenter your site now. 1 and 2
@@ -86,7 +153,7 @@ echo
 printf "${RED}look for 192.168.#.### (like 192.168.0.### or 192.168.1.###)${NC}"
 echo 
 #code is by NRRINC Media
-read -s -r -p "Press any key to continue"
+read -s -r -p "Press enter to continue"
 echo
 echo Making DIR 1/2
 sudo mkdir -p /var/www/$site1/public_html
@@ -281,6 +348,7 @@ printf "got to do it again... Oof."
 echo
 echo
 printf "now lets edit the networking file for {$site2}"
+
 echo
 echo
 printf  "${RED}what to write is down below,(do not ctrl c.) when ready,${NC} press enter\n"
